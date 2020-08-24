@@ -1,4 +1,4 @@
-package com.dergon.studios.mycv.api.action.ping
+package com.dergon.studios.mycv.api.controller.ping
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
