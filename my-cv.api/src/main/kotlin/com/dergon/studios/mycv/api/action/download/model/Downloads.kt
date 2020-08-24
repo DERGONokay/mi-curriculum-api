@@ -1,8 +1,11 @@
 package com.dergon.studios.mycv.api.action.download.model
 
 import java.time.LocalDate
+import javax.persistence.Entity
+import javax.persistence.Id
 
-data class Downloads(val email: String,
+@Entity
+data class Downloads(@Id val email: String,
                      var count: Int,
-                     var docType: DocType,
+                     var docType: String,
                      val firstDownload: LocalDate)

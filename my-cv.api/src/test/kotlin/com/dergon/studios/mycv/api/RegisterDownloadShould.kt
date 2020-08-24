@@ -1,9 +1,8 @@
 package com.dergon.studios.mycv.api
 
+import com.dergon.studios.mycv.api.action.download.RegisterDownload
 import com.dergon.studios.mycv.api.action.download.infra.DownloadRepository
 import com.dergon.studios.mycv.api.action.download.model.Downloads
-import com.dergon.studios.mycv.api.action.download.RegisterDownload
-import com.dergon.studios.mycv.api.action.download.model.DocType
 import org.assertj.core.api.BDDAssertions.then
 import org.junit.jupiter.api.Test
 import java.time.LocalDate
@@ -17,37 +16,37 @@ class RegisterDownloadShould {
     fun save_the_download() {
         givenRegisterDownloadAction()
 
-        whenIRegisterADownload(email, DocType.word())
+        whenIRegisterADownload(email, "docx")
 
-        then(downloadsRepository.find(email)?.count).isGreaterThan(0)
+        then(downloadsRepository.findByEmail(email)?.count).isGreaterThan(0)
     }
 
     @Test
     fun increment_the_download_count_if_there_is_a_previous_one() {
         givenRegisterDownloadAction()
 
-        whenIRegisterADownload(email, DocType.word())
-        whenIRegisterADownload(email, DocType.word())
+        whenIRegisterADownload(email, "docx")
+        whenIRegisterADownload(email, "docx")
 
-        then(downloadsRepository.find(email)?.count).isEqualTo(2)
+        then(downloadsRepository.findByEmail(email)?.count).isEqualTo(2)
     }
 
     @Test
     fun register_the_first_download_date() {
         givenRegisterDownloadAction()
 
-        whenIRegisterADownload(email, DocType.word())
+        whenIRegisterADownload(email, "docx")
 
-        then(downloadsRepository.find(email)?.firstDownload).isEqualTo(today)
+        then(downloadsRepository.findByEmail(email)?.firstDownload).isEqualTo(today)
     }
 
     @Test
     fun save_the_doc_type() {
         givenRegisterDownloadAction()
 
-        whenIRegisterADownload(email, DocType.word())
+        whenIRegisterADownload(email, "docx")
 
-        then(downloadsRepository.find(email)?.docType?.name).isEqualTo(DocType.word().name)
+        then(downloadsRepository.findByEmail(email)?.docType).isEqualTo("docx")
     }
 
     private fun givenRegisterDownloadAction() {
@@ -55,7 +54,7 @@ class RegisterDownloadShould {
         registerDownload = RegisterDownload(downloadsRepository)
     }
 
-    private fun whenIRegisterADownload(email: String, docType: DocType) {
+    private fun whenIRegisterADownload(email: String, docType: String) {
         registerDownload(email, docType)
     }
 
@@ -73,11 +72,11 @@ class InMemoryDownloadRepository : DownloadRepository {
 
     private val downloads = mutableMapOf<String, Downloads>()
 
-    override fun find(userEmail: String): Downloads? {
+    override fun findByEmail(userEmail: String): Downloads? {
         return downloads[userEmail]
     }
 
-    override fun put(downloads: Downloads) {
+    override fun save(downloads: Downloads) {
         this.downloads[downloads.email] = downloads
     }
 
