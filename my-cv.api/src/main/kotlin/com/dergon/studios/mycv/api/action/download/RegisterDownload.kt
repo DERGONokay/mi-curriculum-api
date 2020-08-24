@@ -1,5 +1,7 @@
 package com.dergon.studios.mycv.api.action.download
 
+import com.dergon.studios.mycv.api.action.download.infra.DownloadRepository
+import com.dergon.studios.mycv.api.action.download.model.Downloads
 import java.time.LocalDate
 
 class RegisterDownload(private val downloadRepository: DownloadRepository) {

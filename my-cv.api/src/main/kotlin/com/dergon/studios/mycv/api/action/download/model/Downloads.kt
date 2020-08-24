@@ -1,4 +1,4 @@
-package com.dergon.studios.mycv.api.action.download
+package com.dergon.studios.mycv.api.action.download.model
 
 import java.time.LocalDate
 

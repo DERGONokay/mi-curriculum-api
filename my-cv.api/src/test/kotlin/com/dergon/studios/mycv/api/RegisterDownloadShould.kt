@@ -1,7 +1,7 @@
 package com.dergon.studios.mycv.api
 
-import com.dergon.studios.mycv.api.action.download.DownloadRepository
-import com.dergon.studios.mycv.api.action.download.Downloads
+import com.dergon.studios.mycv.api.action.download.infra.DownloadRepository
+import com.dergon.studios.mycv.api.action.download.model.Downloads
 import com.dergon.studios.mycv.api.action.download.RegisterDownload
 import org.assertj.core.api.BDDAssertions.then
 import org.junit.jupiter.api.Test
