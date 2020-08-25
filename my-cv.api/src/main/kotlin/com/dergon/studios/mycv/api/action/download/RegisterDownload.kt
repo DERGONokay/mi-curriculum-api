@@ -14,7 +14,8 @@ class RegisterDownload(private val downloadRepository: DownloadRepository) {
         downloadRepository.save(downloads)
     }
 
-    private fun previousDownloads(email: String, docType: String): Downloads = downloadRepository.findByEmail(email) ?: Downloads(email, 0, docType, LocalDate.now())
+    private fun previousDownloads(email: String, docType: String): Downloads
+            = downloadRepository.findByEmail(email) ?: Downloads(email, 0, docType, LocalDate.now())
 }
 
 private fun Downloads.incrementDownloadCount() {

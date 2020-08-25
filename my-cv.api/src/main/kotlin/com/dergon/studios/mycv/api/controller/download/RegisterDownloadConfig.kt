@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-class DownloadConfig {
+class RegisterDownloadConfig {
 
     @Bean
     fun registerDownload(h2DownloadRepository: DownloadRepository): RegisterDownload {

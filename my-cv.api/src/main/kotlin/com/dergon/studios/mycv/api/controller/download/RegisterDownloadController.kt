@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/api/download")
+@RequestMapping("/api/download/register")
 class DownloadController(private val registerDownload: RegisterDownload) {
 
     @PostMapping
