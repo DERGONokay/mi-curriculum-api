@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/download/register")
-@CrossOrigin(origins = ["https://damian-lisas-cv.firebaseapp.com/"])
+@CrossOrigin(origins = ["https://damian-lisas-cv.firebaseapp.com/", "https://damian-lisas-cv.firebaseapp.com", "damian-lisas-cv.firebaseapp.com"])
 class RegisterDownloadController(private val registerDownload: RegisterDownload) {
 
     @PostMapping

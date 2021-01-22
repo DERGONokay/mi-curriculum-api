@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/download/link")
-@CrossOrigin(origins = ["https://damian-lisas-cv.firebaseapp.com/"])
+@CrossOrigin(origins = ["https://damian-lisas-cv.firebaseapp.com/", "https://damian-lisas-cv.firebaseapp.com", "damian-lisas-cv.firebaseapp.com"])
 class DownloadController(private val retrieveUrl: RetrieveUrl, private val saveUrl: SaveUrl) {
 
     @GetMapping("/{FORMAT}")
