@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.*
 class DownloadController(private val retrieveUrl: RetrieveUrl, private val saveUrl: SaveUrl) {
 
     @GetMapping("/{FORMAT}")
-    fun getDownloadLink(@PathVariable("FORMAT") format: String): ResponseEntity<String> {
-        return ResponseEntity.ok(retrieveUrl(format))
+    fun getDownloadLink(@PathVariable("FORMAT") format: String): ResponseEntity<DownloadLinkResponse> {
+        return ResponseEntity.ok(DownloadLinkResponse(retrieveUrl(format)))
     }
 
     @PostMapping
@@ -21,6 +21,8 @@ class DownloadController(private val retrieveUrl: RetrieveUrl, private val saveU
         saveUrl(requestBody.format, requestBody.url)
     }
 }
+
+data class DownloadLinkResponse(@JsonProperty("url") val url: String)
 
 data class DownoadLinkRequest(@JsonProperty("format") val format: String,
                               @JsonProperty("url") val url: String)
