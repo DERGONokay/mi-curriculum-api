@@ -13,7 +13,7 @@ class RegisterDownloadShould {
     private lateinit var registerDownload: RegisterDownload
 
     @Test
-    fun save_the_download() {
+    fun `save the download`() {
         givenRegisterDownloadAction()
 
         whenIRegisterADownload(email, "docx")
@@ -22,7 +22,7 @@ class RegisterDownloadShould {
     }
 
     @Test
-    fun increment_the_download_count_if_there_is_a_previous_one() {
+    fun `increment the download count if there is a previous one`() {
         givenRegisterDownloadAction()
 
         whenIRegisterADownload(email, "docx")
@@ -32,7 +32,7 @@ class RegisterDownloadShould {
     }
 
     @Test
-    fun register_the_first_download_date() {
+    fun `register the first download date`() {
         givenRegisterDownloadAction()
 
         whenIRegisterADownload(email, "docx")
@@ -41,7 +41,7 @@ class RegisterDownloadShould {
     }
 
     @Test
-    fun save_the_doc_type() {
+    fun `save the doc type`() {
         givenRegisterDownloadAction()
 
         whenIRegisterADownload(email, "docx")
