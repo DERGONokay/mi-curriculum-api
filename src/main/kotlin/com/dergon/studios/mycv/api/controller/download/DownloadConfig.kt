@@ -1,6 +1,7 @@
 package com.dergon.studios.mycv.api.controller.download
 
 import com.dergon.studios.mycv.api.action.download.RegisterDownload
+import com.dergon.studios.mycv.api.action.download.RetrieveAllDownloads
 import com.dergon.studios.mycv.api.action.download.infra.DownloadRepository
 import com.dergon.studios.mycv.api.action.url.InMemoryUrlRepository
 import com.dergon.studios.mycv.api.action.url.RetrieveUrl
@@ -15,6 +16,11 @@ class DownloadConfig {
     @Bean
     fun registerDownload(downloadRepository: DownloadRepository): RegisterDownload {
         return RegisterDownload(downloadRepository)
+    }
+
+    @Bean
+    fun retrieveAllDownloads(downloadRepository: DownloadRepository): RetrieveAllDownloads {
+        return RetrieveAllDownloads(downloadRepository)
     }
 
     @Bean

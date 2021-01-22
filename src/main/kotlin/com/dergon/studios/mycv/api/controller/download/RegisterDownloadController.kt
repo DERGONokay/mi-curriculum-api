@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*
 class RegisterDownloadController(private val registerDownload: RegisterDownload,
                                  private val retrieveAllDownloads: RetrieveAllDownloads) {
 
-    @PostMapping
+    @GetMapping
     fun retrieveDownloads(): ResponseEntity<List<DownloadResponse>> {
         return ResponseEntity.ok(retrieveAllDownloads().toDownloadResponses())
     }
