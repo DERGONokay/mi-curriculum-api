@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/download/register")
-class DownloadController(private val registerDownload: RegisterDownload) {
+class RegisterDownloadController(private val registerDownload: RegisterDownload) {
 
     @PostMapping
     fun registerNewDownload(@RequestBody request: RegisterDownloadRequest) {

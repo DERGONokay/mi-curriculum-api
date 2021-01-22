@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration
 class RegisterDownloadConfig {
 
     @Bean
-    fun registerDownload(h2DownloadRepository: DownloadRepository): RegisterDownload {
-        return RegisterDownload(h2DownloadRepository)
+    fun registerDownload(downloadRepository: DownloadRepository): RegisterDownload {
+        return RegisterDownload(downloadRepository)
     }
 }
