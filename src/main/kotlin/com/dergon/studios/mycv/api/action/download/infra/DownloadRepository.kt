@@ -1,8 +1,9 @@
 package com.dergon.studios.mycv.api.action.download.infra
 
-import com.dergon.studios.mycv.api.action.download.model.Downloads
+import com.dergon.studios.mycv.api.action.download.model.Download
 
 interface DownloadRepository {
-    fun findByEmail(userEmail: String): Downloads?
-    fun save(downloads: Downloads)
+    fun findByEmail(userEmail: String): Download?
+    fun save(download: Download)
+    fun findAll(): List<Download>
 }

@@ -2,7 +2,7 @@ package com.dergon.studios.mycv.api
 
 import com.dergon.studios.mycv.api.action.download.RegisterDownload
 import com.dergon.studios.mycv.api.action.download.infra.DownloadRepository
-import com.dergon.studios.mycv.api.action.download.model.Downloads
+import com.dergon.studios.mycv.api.action.download.model.Download
 import org.assertj.core.api.BDDAssertions.then
 import org.junit.jupiter.api.Test
 import java.time.LocalDate
@@ -70,14 +70,18 @@ class RegisterDownloadShould {
 
 class InMemoryDownloadRepository : DownloadRepository {
 
-    private val downloads = mutableMapOf<String, Downloads>()
+    private val downloads = mutableMapOf<String, Download>()
 
-    override fun findByEmail(userEmail: String): Downloads? {
+    override fun findByEmail(userEmail: String): Download? {
         return downloads[userEmail]
     }
 
-    override fun save(downloads: Downloads) {
-        this.downloads[downloads.email] = downloads
+    override fun save(download: Download) {
+        this.downloads[download.email] = download
+    }
+
+    override fun findAll(): List<Download> {
+        return downloads.values.toList()
     }
 
 }
