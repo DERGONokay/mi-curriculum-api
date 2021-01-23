@@ -14,13 +14,13 @@ import org.springframework.context.annotation.Configuration
 class DownloadConfig {
 
     @Bean
-    fun registerDownload(downloadRepository: DownloadRepository): RegisterDownload {
-        return RegisterDownload(downloadRepository)
+    fun registerDownload(h2DownloadRepository: DownloadRepository): RegisterDownload {
+        return RegisterDownload(h2DownloadRepository)
     }
 
     @Bean
-    fun retrieveAllDownloads(downloadRepository: DownloadRepository): RetrieveAllDownloads {
-        return RetrieveAllDownloads(downloadRepository)
+    fun retrieveAllDownloads(h2DownloadRepository: DownloadRepository): RetrieveAllDownloads {
+        return RetrieveAllDownloads(h2DownloadRepository)
     }
 
     @Bean
